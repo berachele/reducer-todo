@@ -42,7 +42,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>To Do List:</h1>
-        <TodoForm addNew={addNew} />
+        <TodoForm addNew={addNew} objectiveList={objectiveList} setObjectiveList={setObjectiveList} />
       </header>
       <TodoList objectives={objectiveList} toggleItem={toggleItem} clearFinished={clearFinished}/>
     </div>
