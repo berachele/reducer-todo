@@ -2,7 +2,7 @@ import React from "react"
 import Todo from "./Todo"
 
 function TodoList(props){
-    console.log("TODOLIST PROPS -->", props.objectives)
+    console.log("TODOLIST PROPS -->", props)
     return(
         <div>
             {props.objectives.map(obj => {

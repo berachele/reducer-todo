@@ -21,7 +21,7 @@ function App() {
         return objective
       }
     })
-    setObjectiveList(objectiveList = newObjectiveList)
+    setObjectiveList(newObjectiveList)
   }
 
   const addNew = objectiveText => {
@@ -35,14 +35,14 @@ function App() {
 
   const clearFinished = event => {
     event.preventDefault()
-    setObjectiveList(objectiveList = objectiveList.filter(objective => !objective.complete))
+    setObjectiveList(objectiveList.filter(objective => !objective.complete))
   }
 
   return (
     <div className="App">
       <header className="App-header">
         <h1>To Do List:</h1>
-        <TodoForm addNew={addNew} objectiveList={objectiveList} setObjectiveList={setObjectiveList} />
+        <TodoForm addNew={addNew} />
       </header>
       <TodoList objectives={objectiveList} toggleItem={toggleItem} clearFinished={clearFinished}/>
     </div>
