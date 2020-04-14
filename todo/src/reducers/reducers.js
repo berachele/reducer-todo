@@ -8,7 +8,9 @@ export const reducer = (state, action) => {
             objectives: [...state.objectives, newObjective]
         }
     case "TOGGLE":
-        return{}
+        return{
+            
+        }
     case "CLEAR_FORM":
         return{}
     default:

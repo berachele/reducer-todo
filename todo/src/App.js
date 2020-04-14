@@ -7,7 +7,7 @@ import objectives from "./reducers/reducers"
 
 function App() {
   const [state, dispatch] = useReducer(reducer, objectives)
-  // const [objectiveList, setObjectiveList] = useState(objectives)
+  const [objectiveList, setObjectiveList] = useState(objectives)
   // console.log("MY OBJECTIVES", objectives)
 
   //toggleItem id
@@ -45,7 +45,7 @@ function App() {
         <h1>To Do List:</h1>
         <TodoForm addNew={addNew} />
       </header>
-      <TodoList objectives={objectiveList} toggleItem={toggleItem} clearFinished={clearFinished}/>
+      <TodoList objectives={objectives} toggleItem={toggleItem} clearFinished={clearFinished}/>
     </div>
   );
 }
