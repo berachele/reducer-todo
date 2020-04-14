@@ -1,7 +1,19 @@
 import React from "react"
 
 export const reducer = (state, action) => {
-    return {};
+ switch(action.type){   
+    case "ADD_TODO":
+        return{
+            ...state,
+            objectives: [...state.objectives, newObjective]
+        }
+    case "TOGGLE":
+        return{}
+    case "CLEAR_FORM":
+        return{}
+    default:
+        return state
+  }
 }
 
 let objectives = [

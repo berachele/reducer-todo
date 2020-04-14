@@ -6,7 +6,8 @@ import reducer from "./reducers/reducers"
 import objectives from "./reducers/reducers"
 
 function App() {
-  const [objectiveList, setObjectiveList] = useState(objectives)
+  const [state, dispatch] = useReducer(reducer, objectives)
+  // const [objectiveList, setObjectiveList] = useState(objectives)
   // console.log("MY OBJECTIVES", objectives)
 
   //toggleItem id
