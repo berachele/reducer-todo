@@ -11,7 +11,9 @@ export const reducer = (state, action) => {
             ...state, action.payload
         ]
     case "CLEAR_FORM":
-        return{}
+        return[
+            ...state, state.filter(objective => {return !objective.complete})
+        ]
     default:
         return state
   }
