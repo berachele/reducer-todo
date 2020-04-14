@@ -3,14 +3,13 @@ import React from "react"
 export const reducer = (state, action) => {
  switch(action.type){   
     case "ADD_TODO":
-        return{
-            ...state,
-            objectives: [...state.objectives, newObjective]
-        }
+        return[
+            ...state, action.payload
+        ]
     case "TOGGLE":
-        return{
-            
-        }
+        return[
+            ...state, action.payload
+        ]
     case "CLEAR_FORM":
         return{}
     default:

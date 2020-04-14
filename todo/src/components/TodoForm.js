@@ -1,9 +1,9 @@
-import React, {useReducer} from "react"
+import React, {useState} from "react"
 
 function TodoForm (props) {
     console.log("TODO FORM PROPS", props)
-    // const [state, setState] = useState("")
-    const [state, dispatch] = useReducer(reducer, objectives)
+    const [state, setState] = useState("")
+
 
     const handleChanges = event => {
         event.preventDefault()
@@ -17,7 +17,7 @@ function TodoForm (props) {
         props.addNew(state)
     }
     return(
-        <form onSubmit={()=>dispatch({ type: "ADD_TODO" })}>
+        <form onSubmit={submitForm}>
             <input name="name"
             placeholder="Add Item"
             value={state}
