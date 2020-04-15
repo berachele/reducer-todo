@@ -54,9 +54,9 @@ function App() {
         <h1>To Do List:</h1>
         <TodoForm addNew={addNew} tee={state}/>
       </header>
-      {state.objectives.map(objective => {
-        return <TodoList objectives={objective} toggleItem={toggleItem} />
-      })}
+      {/* {state.objectives.map(objective => { */}
+       <TodoList {...state} toggleItem={toggleItem} />
+      {/* })} */}
       <button onClick={clearFinished}>Remove Completed Items</button>
     </div>
   );

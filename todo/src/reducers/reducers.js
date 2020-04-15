@@ -7,12 +7,24 @@ export const reducer = (state, action) => {
             objectives: [...state.objectives, action.payload]
         }
     case "TOGGLE":
-        {
-            console.log("Objectives !!!!!!!!!--> ", state.objectives)
-            state.objectives[action.payload.id].complete = !state.objectives[action.payload.id].complete
-            return{
-            objectives: [...state.objectives]
-        }}
+        return{
+            ...state,
+            objectives: state.objectives.map(task => {
+                if(task.id === action.payload){
+                    return {
+                        ...task, complete: !task.complete
+                    }
+                }else{
+                    return task
+                }
+            })
+        }
+        // {
+        //     state.objectives[action.payload.id].complete = !state.objectives[action.payload.id].complete
+        //     return{
+        //     objectives: [...state.objectives]
+        //     }
+        // }
     case "CLEAR_FORM":
         const newObj = state.objectives.filter(o => o.complete === !o.complete)
         return{
