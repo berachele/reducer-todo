@@ -2,7 +2,11 @@ import React, {useState} from "react"
 
 function TodoForm (props) {
     console.log("TODO FORM PROPS", props)
-    const [state, setState] = useState("")
+    const [state, setState] = useState({
+        name: "",
+        complete: false,
+        id: props.tee.objectives.length
+    })
 
 
     const handleChanges = event => {
@@ -20,7 +24,7 @@ function TodoForm (props) {
         <form onSubmit={submitForm}>
             <input name="name"
             placeholder="Add Item"
-            value={state}
+            value={state.objectives}
             onChange={handleChanges}/>
             <button>Add</button>
         </form>

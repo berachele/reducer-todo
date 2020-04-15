@@ -3,38 +3,42 @@ import React from "react"
 export const reducer = (state, action) => {
  switch(action.type){   
     case "ADD_TODO":
-        return[
-            ...state, action.payload
-        ]
+        return{
+            objectives: [...state.objectives, action.payload]
+        }
     case "TOGGLE":
-        return[
-            ...state, action.payload
-        ]
+        {
+            console.log("Objectives !!!!!!!!!--> ", state.objectives)
+            state.objectives[action.payload.id].complete = !state.objectives[action.payload.id].complete
+            return{
+            objectives: [...state.objectives]
+        }}
     case "CLEAR_FORM":
-        return[
-            ...state, state.filter(objective => {return !objective.complete})
-        ]
+        const newObj = state.objectives.filter(o => o.complete === !o.complete)
+        return{
+            objectives: newObj /*[...state.objectives, state.filter(objective => {return !objective.complete})]*/
+        } 
     default:
         return state
   }
 }
 
-let objectives = [
+let initialState = {objectives: [
     {
         name: "Do the dishes",
         complete: false,
-        id: 1234
+        id: 0
     },
     {
         name: "Clean the kitchen",
         complete: false,
-        id: 1235
+        id: 1
     },
     {
         name: "Sweep/mop floors",
         complete: false,
-        id:1236
+        id: 2
     }
-]
+]}
 
-export default objectives
+export default initialState
