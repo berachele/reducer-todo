@@ -19,16 +19,18 @@ export const reducer = (state, action) => {
                 }
             })
         }
-        // {
-        //     state.objectives[action.payload.id].complete = !state.objectives[action.payload.id].complete
-        //     return{
-        //     objectives: [...state.objectives]
-        //     }
-        // }
     case "CLEAR_FORM":
-        const newObj = state.objectives.filter(o => o.complete === !o.complete)
         return{
-            objectives: newObj /*[...state.objectives, state.filter(objective => {return !objective.complete})]*/
+            ...state,
+            objectives: state.objectives.map(task => {
+                if(task.complete===true){
+                    return{
+                        ...task - task.complete
+                    }
+                }else{
+                    return task
+                }
+            })
         } 
     default:
         return state

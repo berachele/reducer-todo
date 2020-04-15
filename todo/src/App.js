@@ -13,17 +13,6 @@ function App() {
   //toggleItem id
   const toggleItem = clickedId => {
     console.log("This is my clickedID", clickedId)
-    // const newObjectiveList = objectives.map(objective=> {
-    //   if(objective.id === clickedId){
-    //     return{
-    //       ...objective,
-    //       complete: !objective.complete
-    //     }
-    //   }else{
-    //     return objective
-    //   }
-    // })
-    // setObjectiveList(newObjectiveList)
     dispatch({type: "TOGGLE", payload: clickedId})
   }
 
@@ -33,7 +22,6 @@ function App() {
       complete: false,
       id: Date.now()
     }
-    // 
     dispatch({type: "ADD_TODO", payload: newObjective})
   }
 
@@ -45,18 +33,11 @@ function App() {
 
   return (
     <div className="App">
-    {/* //   <header className="App-header">
-        <h1>To Do List:</h1>
-        <TodoForm addNew={addNew} />
-    //   </header>
-    //   <TodoList objectives={state} toggleItem={toggleItem} clearFinished={clearFinished}/> */}
       <header className="App-header">
         <h1>To Do List:</h1>
         <TodoForm addNew={addNew} tee={state}/>
       </header>
-      {/* {state.objectives.map(objective => { */}
        <TodoList {...state} toggleItem={toggleItem} />
-      {/* })} */}
       <button onClick={clearFinished}>Remove Completed Items</button>
     </div>
   );
